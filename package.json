@@ -1,0 +1,27 @@
+{
+  "name": "botbuilder-calling-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "tsc": "tsc",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "bump": "npm version patch -m \"Bump to %s ***NO_CI***\" ",
+    "bump:push": "git push origin HEAD:%BUILD_SOURCEBRANCH% && git push --tags",
+    "release:local": "npm pack",
+    "preversion": "git config user.name CI && git config user.email %npm_package_author_name%"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^2.3.0",
+    "botbuilder-calling": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/async": "^2.0.40",
+    "@types/node": "^7.0.12"
+  }
+}

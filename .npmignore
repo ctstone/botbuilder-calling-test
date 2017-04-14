@@ -1,0 +1,6 @@
+node_modules
+src
+typings
+tslint.json
+tsconfig.json
+*.tgz
