@@ -82,7 +82,6 @@ export class BotCallRecorder implements IMiddlewareMap {
     const id = this.hash(buf);
     const name = `${id}.wav`;
     const filename = path.resolve(this.options.rootDir, name);
-    console.log(filename);
     async.waterfall([
       (next: ErrorCallback) => fs.writeFile(filename, buf, next),
       (next: RewriteCallback) => setImmediate(next, null, name),
@@ -134,7 +133,6 @@ export class BotCallRecorder implements IMiddlewareMap {
   }
 
   private hash(buf: Buffer): string {
-    console.log('digest', this.options.hashDigest);
     return crypto.createHash(this.options.hash).update(buf).digest(this.options.hashDigest);
   }
 }
