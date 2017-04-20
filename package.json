@@ -1,7 +1,7 @@
 {
   "name": "botbuilder-calling-test",
   "version": "1.0.4",
-  "description": "",
+  "description": "Testing utilities for botbuilder-calling",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
@@ -14,15 +14,22 @@
     "preversion": "git config user.name CI && git config user.email %npm_package_author_name%"
   },
   "keywords": [],
-  "author": "",
+  "author": "chstone@microsoft.com",
+  "repository": {
+    "url": "https://github.com/ctstone/botbuilder-calling-test",
+    "type": "git"
+  },
   "license": "MIT",
   "dependencies": {
-    "async": "^2.3.0",
+    "async": "^2.3.0"
+  },
+  "peerDependencies": {
     "botbuilder-calling": "^3.0.1"
   },
   "devDependencies": {
     "@types/async": "^2.0.40",
     "@types/node": "^7.0.12",
+    "botbuilder-calling": "^3.0.1",
     "typescript": "^2.2.2"
   }
 }
