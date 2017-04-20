@@ -19,9 +19,10 @@ const recorder = new BotCallRecorder({rootDir:'logs'});
 
 // use recorder with your bot
 bot.use(recorder);
+
+/** run your bot to capture a testable scenario **/
 ```
 
-Store the captured events to be used as test inputs
 
 ## Write tests
 ```TypeScript
