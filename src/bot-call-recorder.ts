@@ -18,15 +18,14 @@ type WriteBufferCallback = (buf: Buffer, done: RewriteCallback) => void;
 
 export class BotCallRecorder {
   middleware: IMiddlewareMap = {
-    receive(event: IEvent, callback: ErrorCallback): void {
-      this.write(event, event.type, callback);
-    },
-    send(event: IEvent, callback: ErrorCallback): void {
-      this.write(event, event.type, callback);
-    },
-
-    botbuilder(session: CallSession, callback: ErrorCallback): void {
+    botbuilder: (session: CallSession, callback: ErrorCallback) => {
       this.write(event, 'session', callback);
+    },
+    receive: (event: IEvent, callback: ErrorCallback) => {
+      this.write(event, event.type, callback);
+    },
+    send: (event: IEvent, callback: ErrorCallback) => {
+      this.write(event, event.type, callback);
     },
   };
 
