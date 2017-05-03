@@ -16,21 +16,22 @@ export type ReadBufferCallback = (filename: string, done: RewriteCallback) => vo
 export type RewriteCallback = (err: Error, data: any) => void;
 type WriteBufferCallback = (buf: Buffer, done: RewriteCallback) => void;
 
-export class BotCallRecorder implements IMiddlewareMap {
+export class BotCallRecorder {
+  middleware: IMiddlewareMap = {
+    receive(event: IEvent, callback: ErrorCallback): void {
+      this.write(event, event.type, callback);
+    },
+    send(event: IEvent, callback: ErrorCallback): void {
+      this.write(event, event.type, callback);
+    },
+
+    botbuilder(session: CallSession, callback: ErrorCallback): void {
+      this.write(event, 'session', callback);
+    },
+  };
+
   constructor(private options: BotCallRecorderOptions) {
     Object.assign(options, {hash: 'md5', hashDigest: 'hex'});
-  }
-
-  receive(event: IEvent, callback: ErrorCallback): void {
-    this.write(event, event.type, callback);
-  }
-
-  send(event: IEvent, callback: ErrorCallback): void {
-    this.write(event, event.type, callback);
-  }
-
-  botbuilder(session: CallSession, callback: ErrorCallback): void {
-    this.write(event, 'session', callback);
   }
 
   read(file: string, callback: RewriteCallback): void {
