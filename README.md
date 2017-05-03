@@ -18,7 +18,7 @@ const bot = new UniversalCallBot(/* params */);
 const recorder = new BotCallRecorder({rootDir:'logs'});
 
 // use recorder with your bot
-bot.use(recorder);
+bot.use(recorder.middleware);
 
 /** run your bot to capture a testable scenario **/
 ```
